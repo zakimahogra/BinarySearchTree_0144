@@ -54,4 +54,29 @@ public:
 		currentNode = ROOT;
 		parent = NULL;
 
-		
+		while ((currentNode != NULL) && (currentNode->info != element)) {  // While the currentNode is not NULL and the value in the data field of the currentNode is not equal to the value in the data field of the new node
+			parent = currentNode;  // Make the parent point to the currentNode
+			if (element < currentNode->info) {  // If the value in the data field of the new node is less than the value in the data field of the currentNode
+				currentNode = currentNode->leftchild;  // Make the currentNode point to the left child of the currentNode
+			}
+			else {  // If the value in the data field of the new node is greater than the value in the data field of the currentNode
+				currentNode = currentNode->rightchild;  // Make the currentNode point to the right child of the currentNode
+			}
+		}
+	}
+
+
+	void inorder(Node* ptr) // function to perform inorder traversal
+	{
+		if (ROOT == NULL) {
+			cout << "Tree is empty" << endl;
+			return;
+		}
+		if (ptr != NULL) {
+			inorder(ptr->leftchild); // left
+			cout << ptr->info << " "; // root
+			inorder(ptr->rightchild); // right
+		}
+	}
+
+	
