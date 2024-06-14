@@ -33,4 +33,6 @@ public:
 		Node* parent = nullptr;
 		Node* currentNode = nullptr;
 
+		search(element, parent, currentNode);   // Locate the node which will be the parent of the new node
+
 		
